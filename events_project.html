@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Cards</title>
+    <style>
+        body{
+            background-image: url("https://media.istockphoto.com/id/185232989/photo/overhead-view-of-wooden-floor.jpg?s=612x612&w=0&k=20&c=Uhukw4PCX7HgfPMJfxR8nrCQbfT3P4TPMbUdj39PBfM=");
+            background-size: cover;
+            height: 100vh;
+            margin: 0px;
+            font-family: Arial, sans-serif;
+        }
+         nav {
+            height: 40px;
+            width: 100%;
+            color: rgb(232, 224, 224);
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        nav ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; 
+            list-style-type: none;
+        }
+        nav li {
+            padding: 0 20px; 
+        }
+        nav a {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            color: black;
+            font-size: 23px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #a1d0ee;
+        }
+        h1 {
+            padding-top: 70px;
+            font-family:"Roboto";
+            text-align: center;
+            color: black;
+        }
+        .checked {
+            color: orange;
+        }
+        button {
+            border-radius: 5px;
+            background-color: cornflowerblue;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            margin-top: 10px;
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; 
+            justify-content: center;
+            margin-top: 100px;
+        }
+        .card {
+            width: 18rem;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card.selected {
+            border: 2px solid #ff8c00;
+            background-color: rgba(255, 140, 0, 0.1);
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+        }
+        .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+        .card-text {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #4682b4;
+        }
+        .checkbox {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #ff8c00;
+            border-radius: 5px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #ff8c00;
+            visibility: hidden;
+        }
+        .card.selected .checkbox {
+            visibility: visible;
+        }
+        .checkbox.checked {
+            background-color: #ff8c00;
+            color: white;
+        }
+        .events {
+            display: none;
+            margin-top: 10px;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(255, 140, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .events ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .events ul li {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .events.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul class="navbar">
+                <li><a href="mainpage.html">Home</a></li>
+                <li><a href="about_project.html">About</a></li>
+                <li class="current"><a href="#event">Events</a></li>
+                <li><a href="services_project.html">Services</a></li>
+                <li><a href="login_project.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Marriages</h1>
+        <div class="cards-container">
+            <div class="card" onclick="selectCard(this,'traditional')">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://alexandra.bridestory.com/image/upload/assets/1000-B1s1Hnz8z.jpeg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text" onclick="">Traditional Marriage</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <button>30,500</button>
+                </div>
+                <div class="events" id="traditional-events">
+                    <ul>
+                        <li onclick="eventsInTMpage()"><strong>Marriage Events</strong></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this,'traditional')">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://i.pinimg.com/474x/38/14/fe/3814fee619a15cff9116a929cdd9aa75.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">Western Marriage</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>20,500</button>
+                </div>
+                <div class="events" id="traditional-events">
+                    <ul>
+                        <li onclick="eventsInTMpage()"><strong>Marriage Events</strong></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this,'traditional')">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://1.bp.blogspot.com/-SK_Vivl93bU/XfHKhXUY_NI/AAAAAAAAo0A/whn41Dsb38QQR8_9rm7-tWn7Qeb1uSTLQCLcBGAsYHQ/s1600/indianwedding.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">North-Indian Marriage</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>25,500</button>
+                </div>
+                <div class="events" id="traditional-events">
+                    <ul>
+                        <li onclick="eventsInTMpage()"><strong>Marriage Events</strong></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this,'traditional')">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://lh3.googleusercontent.com/uH_eJI8S0i5QXPTPDQ8QYynC5xefkhkG0EGMRx0F7a7TFN9DS7PZETafDZxGq5vWrbSL5pk3b1FqO5CN_ln-ND7nQNQ=w1000" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">Goa Wedding</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <button>50,500</button>
+                </div>
+                <div class="events" id="traditional-events">
+                    <ul>
+                        <li onclick="eventsInTMpage()"><strong>Marriage Events</strong></li>
+                    </ul>
+                </div>
+            </div>   
+        </div>
+        <h1>Birthday Parties</h1>
+        <div class="cards-container">
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://www.joyousplanet.com/wp-content/uploads/2020/01/IMG_7695.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">Below Age-20</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <button>10,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.6_8cJdhGfaZXyoEZTbbyhAHaE8&pid=Api&rs=1&c=1&qlt=95&w=165&h=110" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">Between 20-50</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>20,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://www.cheryls.com/blog/wp-content/uploads/2022/02/birthday_party_for_seniors_4.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">Above 50</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>15,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://www.oyorooms.com/blog/wp-content/uploads/2018/02/How-much-space-does-it-has.png" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">1st Birthday</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>18,500</button>
+                </div>
+            </div>
+        </div>
+        <h1>Gatherings</h1>
+        <div class="cards-container">
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="http://quaker.ca/youth/wp-content/uploads/sites/6/2012/07/IMG_9484.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">School Gathering</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>8,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="http://generations.asaging.org/sites/default/files/styles/facebook/public/2021-01/family-reunion.jpg?h=56d0ca2e&itok=U_CN29s_" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">Elders Gathering</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>15,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://keynotespeakers.info/wp-content/uploads/2024/05/types-of-event-conferences.png" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">Conferences</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <button>22,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://tse2.mm.bing.net/th?id=OIP.o8d0STltT9yqVBNZrR96DgHaE8&pid=Api&P=0&h=180" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <p class="card-text">Meetings</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>17,500</button>
+                </div>
+            </div>
+        </div>
+        <h1>House Warming</h1>
+        <div class="cards-container">
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://tse4.mm.bing.net/th?id=OIP.R4DfLwyYVlxs958piWK3BgAAAA&pid=Api&P=0&h=180" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>15,000</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://deowgxgt4vwfe.cloudfront.net/uploads/1666251593_original.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>20,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.GcKIwlv8Hv73Swa8AR5MiQHaE7&pid=Api&P=0&h=180" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <button>18,000</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://marushikaevents.com/wp-content/uploads/2022/07/281364585_728501698300296_1089883201900755729_n.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>12,000</button>
+                </div>
+            </div>
+        </div>
+        <h1>BabyShowers</h1>
+        <div class="cards-container">
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://i.pinimg.com/originals/39/08/3f/39083f5fccc96dc6327e0d67f384a404.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <button>12,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://4.bp.blogspot.com/-bFaW60V4pGc/Wd-oogSC0QI/AAAAAAAAToE/iVsKnmFE0FQZS_TBua9hJlrJPT5U-TOzQCLcBGAs/s1600/SreemanthamSouthIndianBabyShower.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>20,000</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://5.imimg.com/data5/GLADMIN/Default/2022/5/WM/DG/XA/48807917/baby-shower-decoration-pune-1000x1000.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>15,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://s.ineventos.com/blog/2021/100025/013525-1080w.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>10,000</button>
+                </div>
+            </div>
+        </div>
+        <h1>Dinner Parties</h1>
+        <div class="cards-container">
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://areasofmyexpertise.com/wp-content/uploads/2019/05/celebrate-celebration-cheers-1268558-1100x734.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <button>10,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://c.stocksy.com/a/qSx400/z9/1181896.jpg" class="card-img-top" alt="Traditional Marriage">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>20,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2022/09/21/0/lindens.jpg.rend.hgtvcom.616.493.suffix/1663790316300.jpeg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>15,500</button>
+                </div>
+            </div>
+            <div class="card" onclick="selectCard(this)">
+                <div class="checkbox">&#10004;</div>
+                <img src="https://static01.nyt.com/images/2023/08/02/multimedia/27Summer-party-promo-vlqt/27Summer-party-promo-vlqt-videoSixteenByNine3000.jpg" class="card-img-top" height="50px" width="250px">
+                <div class="card-body">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <button>30,000</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function selectCard(card, type) {
+            card.classList.toggle('selected');
+            const checkbox = card.querySelector('.checkbox');
+            checkbox.classList.toggle('checked');
+            if (type === 'traditional') {
+                const eventsDiv = card.querySelector('.events');
+                eventsDiv.classList.toggle('visible');
+            }
+            else if (type === 'western') {
+                const eventsDiv = card.querySelector('#western-events');
+                eventsDiv.classList.toggle('visible');
+            }
+            else if (type === 'north') {
+                const eventsDiv = card.querySelector('#north-events');
+                eventsDiv.classList.toggle('visible');
+            }
+            else if (type === 'goa') {
+                const eventsDiv = card.querySelector('#goa-events');
+                eventsDiv.classList.toggle('visible');
+            }
+        }
+        function eventsInTMpage() {
+            window.location.href = "marriage_events.html"; 
+        }
+        function eventsInTMpage(){
+            window.location.href="marriage_events.html";
+        }
+        function eventsInTMpage(){
+            window.location.href="marriage_events.html";
+        }
+        function eventsInTMpage(){
+            window.location.href="marriage_events.html";
+        }
+    </script>
+</body>
+</html>

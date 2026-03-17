@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Services</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body{
+    background-image: url("https://wallpaperboat.com/wp-content/uploads/2020/12/02/62556/light-color-32.jpg");
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* NAVBAR */
+nav{
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+nav li{ padding: 0 20px; }
+nav a{
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+
+/* PAGE LAYOUT */
+.container{
+    display: flex;
+    gap: 20px;
+    padding: 100px 20px 20px;
+}
+
+/* SERVICES */
+.services{ width: 78%; }
+
+/* 3-IN-A-ROW GRID */
+.cards-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* CARD */
+.card{
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #fff;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+.card.checked{
+    border: 3px solid #1e90ff;
+    background-color: #e6f3ff;
+}
+.card input{ display: none; }
+.card img{
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.card button{
+    background-color: cornflowerblue;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    color: white;
+}
+
+/* TOTAL BOX */
+.total-box{
+    width: 22%;
+    position: sticky;
+    top: 90px;
+}
+.total-inner{
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.proceed-btn{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #1e90ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* HEADERS */
+.service-title{
+    margin: 30px 0 10px;
+    font-size: 26px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<ul>
+    <li><a href="mainpage.html">Home</a></li>
+    <li><a href="about_project.html">About</a></li>
+    <li><a href="events_project.html">Events</a></li>
+    <li><a href="services_project.html">Services</a></li>
+    <li><a href="login_project.html">Contact</a></li>
+</ul>
+</nav>
+
+<div class="container">
+
+<div class="services">
+
+<!-- PHOTOGRAPHY -->
+<h2 class="service-title">Photography</h2>
+<div class="cards-container">
+<label class="card" data-price="30500">
+<input type="checkbox" onclick="toggleCard(this)">
+<img src="https://tse3.mm.bing.net/th?id=OIP.S5Liopiv8X_oSgjDjJnidwHaE7">
+<p>Candid Photography</p><button>₹30,500</button>
+</label>
+
+<label class="card" data-price="20500">
+<input type="checkbox" onclick="toggleCard(this)">
+<img src="https://tse3.mm.bing.net/th?id=OIP.d_IDh1smgiCQ95zHUxY0CwHaEK">
+<p>Traditional Photography</p><button>₹20,500</button>
+</label>
+
+<label class="card" data-price="35000">
+<input type="checkbox" onclick="toggleCard(this)">
+<img src="https://tse2.mm.bing.net/th?id=OIP.6psj4O8xExqoa_ogPYjevAHaFj">
+<p>Cinematic Photography</p><button>₹35,000</button>
+</label>
+</div>
+
+<!-- VIDEOGRAPHY -->
+<h2 class="service-title">Videography</h2>
+<div class="cards-container">
+<label class="card" data-price="40000">
+<input type="checkbox" onclick="toggleCard(this)">
+<img src="https://www.wedding.film/wp-content/uploads/2023/08/Cinematic-Wedding-Videos-1000x500.png">
+<p>Cinematic Video</p><button>₹40,000</button>
+</label>
+
+<label class="card" data-price="25000">
+<input type="checkbox" onclick="toggleCard(this)">
+<img src="https://tse2.mm.bing.net/th/id/OIP.U9YLhH3TZyp26MPQ8VGWCQHaE8?pid=Api&P=0&h=180">
+<p>Traditional Video</p><button>₹25,000</button>
+</label>
+
+<label class="card" data-price="30000">
+<input type="checkbox" onclick="toggleCard(this)">
+<img src="https://tse3.mm.bing.net/th?id=OIP.S5Liopiv8X_oSgjDjJnidwHaE7">
+<p>Drone Video</p><button>₹30,000</button>
+</label>
+</div>
+
+<!-- DECORATION -->
+<h2 class="service-title">Decoration</h2>
+<div class="cards-container">
+<label class="card" data-price="50000">
+<input type="checkbox" onclick="toggleCard(this)">
+<img src="https://tse1.mm.bing.net/th/id/OIP.gn4NUpClHuJcKfeYZUaibwHaFA?pid=Api&P=0&h=180">
+<p>Stage Decoration</p><button>₹50,000</button>
+</label>
+
+<label class="card" data-price="30000">
+<input type="checkbox" onclick="toggleCard(this)">
+<img src="https://tse3.mm.bing.net/th/id/OIP.WFptZIqs6KYj6VMUxpAudwHaFj?pid=Api&P=0&h=180">
+<p>Hall Decoration</p><button>₹30,000</button>
+</label>
+
+<label class="card" data-price="20000">
+<input type="checkbox" onclick="toggleCard(this)">
+<img src="https://tse4.mm.bing.net/th/id/OIP.iq7aEm1NAeFK-YKH43wYLQHaFe?pid=Api&P=0&h=180">
+<p>Flower Decoration</p><button>₹20,000</button>
+</label>
+</div>
+
+</div>
+
+<!-- TOTAL -->
+<div class="total-box">
+<div class="total-inner">
+<h3>Total</h3>
+<h2>₹ <span id="total">0</span></h2>
+<button class="proceed-btn" onclick="proceed()">Proceed</button>
+</div>
+</div>
+
+</div>
+
+<script>
+let total = 0;
+
+function toggleCard(cb){
+    const card = cb.closest('.card');
+    const price = parseInt(card.dataset.price);
+
+    if(cb.checked){
+        card.classList.add("checked");
+        total += price;
+    }else{
+        card.classList.remove("checked");
+        total -= price;
+    }
+    document.getElementById("total").innerText = total.toLocaleString();
+}
+
+function proceed(){
+    if(total === 0){
+        alert("Please select at least one service");
+    }else{
+        alert("Total Amount: ₹" + total.toLocaleString());
+    }
+}
+</script>
+
+</body>
+</html>
+

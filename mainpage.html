@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Managers</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    z-index: 100;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 0;
+}
+nav li {
+    margin: 0 15px;
+}
+nav a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+nav a:hover {
+    color: #1e90ff;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url("http://wallpapercave.com/wp/fuIWAn6.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+.hero h1 {
+    font-size: 50px;
+}
+.hero p {
+    font-size: 22px;
+}
+.signup-btn {
+    padding: 10px 20px;
+    background: #1e90ff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* SECTIONS */
+.section {
+    padding: 100px 40px;
+    text-align: center;
+}
+.section h2 {
+    font-size: 36px;
+    text-decoration: underline;
+}
+.section p {
+    font-size: 18px;
+}
+
+/* IMAGE GRID */
+.grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+}
+.grid img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<ul>
+    <li><a href="mainpage.html">Home</a></li>
+    <li><a href="about_project.html">AboutUs</a></li>
+    <li><a href="events_project.html">Events</a></li>
+    <li><a href="services_project.html">Services</a></li>
+    <li><a href="#" onclick="goToContact()">ContactUs</a></li>
+    <li><a href="login_project.html">Login</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div>
+        <h1>Event Managers</h1>
+        <p>Bringing your vision to life!!</p>
+        <button class="signup-btn" onclick="goToLogin()">Sign Up</button>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+<h2>ABOUT US</h2>
+<p>We provide budget-friendly packages for all your events.</p>
+<div class="grid">
+    <img src="about1.png">
+    <img src="about2.png">
+    <img src="about3.png">
+</div>
+</div>
+
+<!-- EVENTS -->
+<div class="section">
+<h2>EVENTS</h2>
+<p>We cover marriages, engagements, birthdays and more.</p>
+<div class="grid">
+    <img src="event1.png">
+    <img src="event2.png">
+    <img src="event3.png">
+</div>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+<h2>SERVICES</h2>
+<p>We provide end-to-end event management.</p>
+<div class="grid">
+    <img src="service1.png">
+    <img src="service2.png">
+    <img src="service3.png">
+</div>
+</div>
+
+<script>
+function goToLogin() {
+    window.location.href = "login_project.html";
+}
+
+function goToContact() {
+    localStorage.setItem("redirectAfterLogin", "contact");
+    window.location.href = "login_project.html";
+}
+</script>
+
+</body>
+</html>

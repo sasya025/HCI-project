@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
+    <title>Contact Us</title>
+</head>
+<style>
+  * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-image: url("https://wallpapers.com/images/file/simple-background-xrxhgofoiio0zk6x.jpg");
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+nav {  
+  width: 100%;
+  color: black;
+  padding: 14px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+} 
+
+nav ul { 
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden;
+  text-align: center;
+} 
+
+nav ul li { 
+  display: inline-block;
+} 
+
+nav ul li a { 
+  display: block; 
+  color: black; 
+  text-align: center; 
+  padding: 14px 16px; 
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+} 
+
+nav ul li a:hover { 
+  background-color: #a1d0ee;
+}
+
+section {
+  position: relative;
+  z-index: 3;
+  padding-top: 100px; /* Adjusted for fixed nav */
+  padding-bottom: 50px;
+}
+
+.container {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.section-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.section-header h2 {
+  color: #333;
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.row  {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-info {
+  width: 50%;
+}
+
+.contact-info-item {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.contact-info-icon {
+  height: 70px;
+  width: 70px;
+  background-color: transparent;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.contact-info-icon i {
+  font-size: 30px;
+  line-height: 70px;
+}
+
+.contact-info-content {
+  margin-left: 20px;
+}
+
+.contact-info-content h4 {
+  color: #333;
+  font-size: 1.4em;
+  margin-bottom: 5px;
+}
+
+.contact-info-content p {
+  font-size: 1em;
+  background: transparent;
+}
+
+.contact-form {
+  background-color: transparent;
+  padding: 40px;
+  width: 45%;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.contact-form h2 {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact-form .input-box {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.contact-form .input-box input,
+.contact-form .input-box textarea{
+  width: 100%;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 2px solid #333;
+  outline: none;
+  resize: none;
+  background: transparent;
+}
+
+.contact-form .input-box span {
+  position: absolute;
+  left: 0;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: #666;
+}
+
+.contact-form .input-box input:focus ~ span,
+.contact-form .input-box textarea:focus ~ span{
+  color: white;
+  font-size: 12px;
+  transform: translateY(-20px);
+}
+
+.contact-form .input-box input[type="submit"]
+{
+  width: 100%;
+  background: transparent;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #333;
+  transition: 0.5s;
+}
+
+.contact-form .input-box input[type="submit"]:hover
+{
+  background: transparent;
+  color: black;
+}
+
+@media (max-width: 991px) {
+  section {
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+  
+  .row {
+    flex-direction: column;
+  }
+  
+  .contact-info {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  
+  .contact-form {
+    width: 100%;
+  }
+}
+.current {
+        text-align: end;
+        background-color:lightblue;
+        border-width: 5px;
+    }
+</style>
+<body>
+    <nav> 
+        <ul> 
+            <li><a href="mainpage.html">Home</a></li> 
+            <li><a href="about_project.html">About</a></li> 
+            <li><a href="events_project.html">Event</a></li> 
+            <li><a href="services_project.html">Service</a></li> 
+            <li class="current"><a href="contact.html">Contact</a></li> 
+        </ul>
+    </nav>
+
+    <section>
+        <div class="section-header">
+            <div class="container">
+                <h2>Contact Us</h2>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Address</h4>
+                            <p>Hasanparthy, Hanmakonda, Warangal 
+                              pincode: 500764</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Phone</h4>
+                            <p>012-3456-789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Email</h4>
+                            <p>eventmanagers@sru.edu.in</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="" id="contact-form">
+                        <h2>Send Message</h2>
+                        <div class="input-box">
+                          <label for="name">Full Name: </label>
+                            <input type="text" required="true" name="Fullname">
+                        </div>
+                        
+                        <div class="input-box">
+                          <label for="email">Email: </label>
+                            <input type="email" required="true" name="Email">
+                        </div>
+                        
+                        <div class="input-box">
+                          <label for="text">Text Message... enter your date</label>
+                            <textarea required="true" name="Text message...."></textarea>
+                        </div>
+                        
+                        <div class="input-box">
+                            <input type="submit" value="Send" name="">
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</body>
+</html>
